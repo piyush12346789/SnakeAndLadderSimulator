@@ -43,7 +43,11 @@ namespace SnakeAndLadderSimulator
                 int numOnDie = RollTheDie();
                 throws++;
                 int toAdd = NewPosition(numOnDie);
-                nextPosition = currentPosition + toAdd;
+                //checking if next position will exceed 100
+                if (currentPosition + toAdd > WINNING_POSITION)
+                    nextPosition = currentPosition;
+                else
+                    nextPosition = currentPosition + toAdd;
                 //checking if player has moved below position 0
                 if (nextPosition < STARTING_POSITION)
                     currentPosition = STARTING_POSITION;
